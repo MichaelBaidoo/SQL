@@ -1,3 +1,7 @@
+
+#This is a superstore data project. The  item_id, item_name, category, price, 
+stock_quantity and average_rating are the headings for the various columns in the table below
+
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
@@ -7,6 +11,8 @@ CREATE TABLE superstore (
     average_rating DECIMAL(3, 2)
 );
 
+
+#This portion below is the data that would be queried under the various headings in the table created above.
 INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
 VALUES
     (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
@@ -24,3 +30,15 @@ VALUES
     (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+#ANALYSIS
+#Find the average price for items in the category of "Electronics"
+SELECT avg(price)
+FROM superstore
+WHERE category="Electronics"
+
+#Find  the price of items in the category of  "Furnishings" from the least price
+SELECT item_name,price
+FROM superstore
+WHERE category='Furnishings'
+ORDER BY price ASC;
